@@ -1,0 +1,24 @@
+{
+    "web": {
+        "domain": "example.com",
+        "domainWithProto": "https://example.com",
+        "meta": {
+            "desc": "a wild file has appeared"
+        }
+    },
+    "discord": {
+        "auth": {
+            "sessionSecret": "",
+            "clientId": "",
+            "clientSecret": ""
+        },
+        "access": {
+            "admins": [
+                "USER_DISCORD_ID"
+            ],
+            "members": [
+                "USER_DISCORD_ID"
+	    ]
+        }
+    }
+}

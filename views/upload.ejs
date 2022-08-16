@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <title>Noway Developers CDN</title>
+        <meta name="description" content="Noway Developers CDN System">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <h1>Dosya yükle</h1>
+        <% if (err !== '') { %>
+            <div class="err">
+                <p>Hata: <%= err %></p>
+            </div>
+        <% }; %>
+        <div class="form">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="file">
+                    <input class="file" type="file" name="file" id="file" required>
+                    <p>Dosyayı sürükle ya da seç.</p>
+                </div>
+                <button type="submit">YÜKLE</button>
+            </form>
+        </div>
+        <script src="https://kit.fontawesome.com/f737751420.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            function formatBytes(bytes, decimals = 2) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            }
+            
+            $(document).ready(function() {
+                $("div form div input").change(function () {
+                    $("div form div p").text(`Dosya hazır: ${this.files[0].name} (${formatBytes(this.files[0].size)}).`);
+                });
+            })
+        </script>
+    </body>
+</html> 
